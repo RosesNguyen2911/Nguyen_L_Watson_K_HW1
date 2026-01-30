@@ -5,6 +5,9 @@ An interactive front-end web project that allows users to explore **Star Wars ch
 This project focuses on **AJAX data fetching**, **DOM manipulation**, and **responsive UI design**, following a **mobile-first** approach.
 
 ---
+![Star Wars Character Guide Preview](images/preview.png)
+
+---
 
 ## 🚀 Project Overview
 

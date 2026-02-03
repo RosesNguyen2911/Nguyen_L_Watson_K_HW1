@@ -1,0 +1,242 @@
+@use "../abstracts" as *;
+
+/* Base Styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-body;
+  color: $sw-white;
+  background-image: url(../images/bg_stars.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-heading;
+  letter-spacing: 1px;
+}
+
+a {
+  color: $sw-yellow;
+  text-decoration: none;
+}
+
+
+/* Main Layout */
+
+.site-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  color: $sw-yellow;
+  text-shadow: 0 0 8px rgba($sw-yellow, 0.9);
+}
+
+/* Search Bar */
+
+.search-form input {
+  padding: 0.6rem 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid $sw-blue;
+  color: $sw-white;
+
+  &:focus {
+    outline: none;
+    border-color: $sw-red;
+    box-shadow: 0 0 10px rgba($sw-red, 0.6);
+  }
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-wrapper i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $sw-blue;
+  pointer-events: none;
+}
+
+.search-wrapper input {
+  padding-left: 2.4rem;
+}
+
+/* Footer */
+
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  background: $glass-bg;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid $glass-border;
+  color: $sw-gray;
+  font-size: 0.85rem;
+}
+
+/* Spinner */
+
+.spinner {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.spinner-icon {
+  width: 70px;
+  height: 70px;
+  animation: spin 1.2s linear infinite;
+  filter: brightness(0) saturate(100%) invert(84%) sepia(61%) saturate(476%)
+    hue-rotate(358deg) brightness(101%) contrast(105%)
+    drop-shadow(0 0 12px rgba($sw-yellow, 0.8));
+}
+
+.spinner-text {
+  margin-top: 1.2rem;
+  font-family: $font-heading;
+  color: $sw-yellow;
+  letter-spacing: 1.5px;
+}
+
+
+.spinner-text {
+  margin-top: 1.2rem;
+  font-family: $font-heading;
+  color: $sw-yellow;
+  letter-spacing: 1.5px;
+}
+
+
+.spinner.has-error {
+  .spinner-text {
+    color: $sw-red;
+  }
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Error Overlay */
+
+.error {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+}
+
+.error-message-box {
+  background: rgba(0, 0, 0, 0.95);
+  color: $sw-red;
+  padding: 1.4rem 2rem;
+  border: 2px solid $sw-red;
+  font-size: 0.95rem;
+  box-shadow: 0 0 10px rgba($sw-red, 0.6), inset 0 0 8px rgba($sw-red, 0.35);
+}
+
+/* Utility */
+
+.hidden {
+  display: none !important;
+}
+
+/* Movie layout – Tablet & Desktop */
+
+@media (min-width: 768px) {
+  .movie-card {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .movie-card figure {
+    flex: 0 0 280px;
+  }
+
+  .movie-poster {
+    margin: 0;
+  }
+
+  .movie-content {
+    flex: 1;
+  }
+}
+
+/* Nav */
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background: $glass-bg;
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+
+    ul {
+      flex-direction: column;
+    }
+
+    a {
+      padding: 1rem 1.5rem;
+      display: block;
+    }
+  }
+
+  .nav-toggle:checked ~ .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 6px);
+  }
+
+  .nav-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}

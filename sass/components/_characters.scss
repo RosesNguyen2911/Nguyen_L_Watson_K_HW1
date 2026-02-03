@@ -1,0 +1,119 @@
+@use "../abstracts" as *;
+/* Character List */
+
+.character-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .character-card {
+    position: relative;
+    margin-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.6));
+    border: 1px solid $glass-border;
+    backdrop-filter: blur(8px);
+  
+    transition: transform 0.25s ease, box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  
+    overflow: hidden;
+  
+    box-shadow: inset 0 0 0 1px rgba($sw-yellow, 0.08),
+      0 0 14px rgba(0, 0, 0, 0.6);
+  
+    &:hover {
+      transform: translateY(-8px) scale(1.025);
+      border-color: rgba($sw-yellow, 0.7);
+  
+      box-shadow: 0 0 18px rgba($sw-yellow, 0.35), 0 0 42px rgba($sw-yellow, 0.15),
+        inset 0 0 12px rgba($sw-yellow, 0.12);
+  
+      z-index: 2;
+    }
+  
+    &:focus-within {
+      transform: translateY(-8px) scale(1.025);
+      border-color: $sw-yellow;
+  
+      box-shadow: 0 0 26px rgba($sw-yellow, 0.55), 0 0 52px rgba($sw-yellow, 0.25),
+        inset 0 0 16px rgba($sw-yellow, 0.18);
+  
+      z-index: 3;
+    }
+  }
+  
+  .character-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(
+      135deg,
+      transparent 50%,
+      rgba($sw-yellow, 0.65) 50%
+    );
+    pointer-events: none;
+  }
+  
+  /* Character Image */
+  
+  .character-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  
+    transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+  }
+  
+  .character-card:hover .character-img {
+    transform: scale(1.06);
+    filter: contrast(1.05) brightness(1.05);
+  
+    box-shadow: 0 0 20px rgba($sw-yellow, 0.35), 0 0 40px rgba($sw-yellow, 0.15);
+  }
+  
+  /* Character Name – Databank Style */
+  
+  .character-name {
+    display: block;
+    text-align: center;
+    padding: 0.8rem 0rem 0.5rem;
+  
+    font-family: $font-heading;
+    font-size: 1.05rem;
+    letter-spacing: 1.3px;
+  
+    color: $sw-yellow;
+    text-shadow: 0 0 8px rgba($sw-yellow, 0.85), 0 0 18px rgba($sw-yellow, 0.35);
+  
+    position: relative;
+  }
+  
+  .character-name::after {
+    content: "";
+    display: block;
+    width: 38%;
+    height: 1px;
+    margin: 8px auto 0;
+  
+    background: linear-gradient(to right, transparent, $sw-yellow, transparent);
+  
+    opacity: 0.85;
+  }
+  
+  /* Character Overlay Link */
+  
+  .character-link--overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    text-indent: -9999px;
+  
+    &:focus {
+      outline: none;
+    }
+  }
+  

@@ -1,0 +1,83 @@
+@use "../abstracts" as *;
+
+/* Movies */
+
+.movies-section {
+    margin-top: 1rem;
+  }
+  
+  .movie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .movie-card {
+    position: relative;
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55));
+    border: 1px solid rgba($sw-gray, 0.25);
+    backdrop-filter: blur(12px);
+  
+    box-shadow: 0 0 0 1px rgba($sw-yellow, 0.08), 0 0 25px rgba(0, 0, 0, 0.8),
+      inset 0 0 40px rgba(0, 0, 0, 0.6);
+  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 0 1px rgba($sw-yellow, 0.35),
+        0 0 30px rgba($sw-yellow, 0.25), 0 0 60px rgba($sw-yellow, 0.15);
+    }
+  }
+  
+  .movie-poster {
+    border-radius: 2px;
+    border: 1px solid rgba($sw-red, 0.6);
+  
+    box-shadow: 0 0 20px rgba($sw-red, 0.6), 0 0 50px rgba($sw-red, 0.35),
+      inset 0 0 20px rgba(0, 0, 0, 0.6);
+  }
+  
+  .movie-title {
+    margin: 0 0 1rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  
+    color: $sw-yellow;
+    text-shadow: 0 0 6px rgba($sw-yellow, 0.9), 0 0 20px rgba($sw-yellow, 0.4);
+  }
+  
+  .movie-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.4rem 1.2rem;
+  
+    li {
+      font-size: 0.85rem;
+      letter-spacing: 0.6px;
+      color: $sw-blue;
+  
+      &::before {
+        content: "▸ ";
+        color: $sw-yellow;
+      }
+    }
+  }
+  
+  .movie-crawl {
+    max-width: 60ch;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: lighten($sw-gray, 10%);
+  
+    padding-left: 1rem;
+    border-left: 2px solid rgba($sw-yellow, 0.4);
+  
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);
+  }

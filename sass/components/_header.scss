@@ -1,0 +1,68 @@
+@use "../abstracts" as *;
+/* Header */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: $glass-bg;
+    border-bottom: 1px solid $glass-border;
+  }
+  
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    width: 150px;
+    filter: drop-shadow(0 0 6px rgba($sw-yellow, 0.8))
+      drop-shadow(0 0 14px rgba($sw-yellow, 0.55))
+      drop-shadow(0 0 28px rgba($sw-yellow, 0.35));
+  }
+  
+  /* Navigation */
+  
+  .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+  }
+  
+  .main-nav a {
+    font-family: $font-heading;
+    color: $sw-blue;
+    text-shadow: 0 0 6px rgba($sw-blue, 0.9);
+    transition: color 0.3s, text-shadow 0.3s;
+  
+    &:hover {
+      color: $sw-red;
+      text-shadow: 0 0 10px rgba($sw-red, 0.8);
+    }
+  }
+  
+  /* Hamburger Menu */
+  
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    width: 28px;
+    height: 22px;
+  
+    span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      margin: 6px 0;
+      background: $sw-blue;
+      transition: all 0.3s ease;
+    }
+  }

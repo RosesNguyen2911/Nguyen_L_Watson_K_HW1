@@ -388,7 +388,36 @@ a {
     flex: 1;
   }
 }
-/* Nav */
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 10%;
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #ffe81f;
+  color: #ffe81f;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(255, 232, 31, 0.8), 0 0 20px rgba(255, 232, 31, 0.45), inset 0 0 10px rgba(255, 232, 31, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 0 12px rgb(255, 232, 31), 0 0 30px rgba(255, 232, 31, 0.7), 0 0 55px rgba(255, 232, 31, 0.4);
+}
+
+.back-to-top i {
+  filter: drop-shadow(0 0 6px rgba(255, 232, 31, 0.9));
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: block;
